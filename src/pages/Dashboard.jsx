@@ -25,12 +25,13 @@ const Dashboard = () => {
     
     
     const updateIndex = useCallback(() => {
-      const nextIndex = currentIndex + 1;
-      setCurrentIndex(nextIndex);
-      localStorage.setItem('currentIndex', nextIndex.toString());
-      const currentIndexRef = ref(db, 'currentIndex');
-      update(currentIndexRef, nextIndex);
-    }, [currentIndex]);
+        const nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex);
+        localStorage.setItem('currentIndex', nextIndex.toString());
+        const currentIndexRef = ref(db, 'currentIndex');
+        update(currentIndexRef, nextIndex);
+    }, [db, currentIndex]); // Include db in the dependency array
+
     useEffect(() => {
         if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
           updateIndex();
