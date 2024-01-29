@@ -21,7 +21,7 @@ const Dashboard = () => {
             }));
             setQueueList(listItems.sort((a, b) => a.id.localeCompare(b.id))); // Sort by id if needed
         });
-    }, []);
+    }, [waitlistRef]);
     
     
     const updateIndex = () => {
@@ -35,14 +35,14 @@ const Dashboard = () => {
         if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
           updateIndex();
         }
-      }, [queueList, currentIndex]); // Make sure currentIndex is a dependency
+      }, [queueList, currentIndex,updateIndex]); // Make sure currentIndex is a dependency
       
     
     useEffect(() => {
       if (queueList.length > 0 && queueList[currentIndex].status === 'Complete') {
         updateIndex();
       }
-    }, [queueList, currentIndex]);
+    }, [queueList, currentIndex,updateIndex]);
     
     const getNextNumber = () => {
       // Check if there is a next item in the queue
