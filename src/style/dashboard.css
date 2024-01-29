@@ -1,0 +1,243 @@
+.home-container {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    flex-direction: column; /* Stacks children elements vertically */
+    align-items: center; /* Centers children elements vertically */
+    width: 100%; /* Ensure full width */
+}
+ 
+
+
+.box {
+    height: 15rem;
+    width: 50rem;
+    margin: 1rem auto; /* Centered margin */
+    /* Removed 'margin-left: 27rem;' */
+}
+
+.box-icon {
+    position: absolute;
+    height: 6rem;
+    width: 6rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+}
+.box:hover > .box-icon {
+    transform: scale(1.1);
+}
+
+.box-data, .box-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px, rgba(0, 0, 0, 0.5) 0px 1px 3px -1px;
+}
+
+.box-data {
+    flex-direction: column;
+    height: 30rem;
+    width: 50rem;
+    margin-top: 5rem;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.box-data > span {
+    color: #2c6587;
+    font-size: 2rem;
+}
+
+.box-data > h1 {
+    color:  #042444;
+    font-size: 3rem;
+}
+
+.box-icon {
+    font-size: 4rem;
+    color: #fff;
+}
+
+.box:nth-child(1)> .box-icon {
+    background-color:  #f15656;
+}
+
+.box:nth-child(2)> .box-icon {
+    background-color:  #5a84f7;
+}
+
+.box:nth-child(3)> .box-icon {
+    background-color:  #1daf19;
+}
+
+.box:nth-child(4)> .box-icon {
+    background-color:  #ec8704d2;
+}
+.box:nth-child(5)> .box-icon {
+    background-color:  #51a2eed2;
+}
+.box:nth-child(6)> .box-icon {
+    background-color:  #3c63eed2;
+}
+.box:nth-child(7)> .box-icon {
+    background-color:  #f44343d2;
+}
+
+.home-container-2 {
+    display: flex;
+    gap: 1rem;
+}
+
+.card {
+    height: 26rem;
+    width: 50%;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.centered {
+    text-align: center;
+  }
+
+.centered1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.tab1 {
+    text-align: center;
+}
+.danger {
+    color: red;
+    font-size: 24px; /* increase the font-size to make the icon bigger */
+  }
+
+/* media queries (medium device) */
+
+@media screen and (max-width : 1024px ) {
+    .home-container-2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+  }
+  
+  /* media queries (small devices) */
+  
+  @media screen and (max-width : 600px ) {
+    .box {
+        width: 12rem;
+    }
+  }
+  .centered-text {
+    text-align: center;
+  }
+  .large-text {
+    font-size: 100px;
+  }
+
+.call-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+.speak-button {
+    padding: 15px 30px; /* Increase padding for a larger button */
+    font-size: 1.2em; /* Increase the font size if needed */
+    /* Add any additional styles you want for the button */
+    margin-top: 20px; 
+    cursor: pointer;
+    background-color: #007bff; /* Example color: a blue shade */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none; /* Remove the outline to avoid the browser's default focus style */
+    /* Add a transition effect for when the button is hovered or clicked */
+    transition: background-color 0.3s ease;
+  }
+  
+  .speak-button:hover, .speak-button:focus {
+    background-color: #0056b3; /* Darken the button color on hover for visual feedback */
+  }
+
+
+@media (min-width: 768px) {
+.call-button-container .speak-button {
+      max-width: 300px; /* Maximum width for the speak button */
+    }
+  }
+
+/* Optional: Additional button styling */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between; /* This will place the buttons on either end */
+    width: 40rem; /* Match the width of the .box to align with the card */
+    margin-top: 20px; /* Space above the buttons */
+}
+.navigation-buttons button {
+    padding: 10px 60px; /* Padding inside the buttons */
+    font-size: 25px; /* Font size of the button text */
+    margin: 10px 100px; /* Margin around the buttons */
+    margin-left: 10px 300px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.navigation-buttons button:hover {
+    background-color: #45a049;
+}
+
+.navigation-buttons button:disabled {
+    background-color: #ccc;
+    color: #666;
+}
+@media screen and (max-width : 1024px ) {
+    .home-container-2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width : 600px ) {
+    .box {
+        width: 12rem; /* Adjust if needed */
+        flex: none; /* You might want to stop flex-grow in smaller screens */
+    }
+}
+
+.box-data > span {
+    font-size: 100px; /* Increase font size of 'NUMBER' label */
+    /* Additional styling if needed */
+}
+
+.box-data > h1 {
+    font-size: 150px; /* Increase font size of the number */
+    /* Additional styling if needed */
+}
+.next-number h2 {
+    background: linear-gradient(to right, #ff0000, #ff0000); /* Gradient from red to yellow */
+    -webkit-background-clip: text;
+    font-size: 30px;
+    color: transparent; /* Makes the text color transparent to show the gradient */
+    margin-top: 1rem; /* Adjust as needed */
+}
+.welcome-title {
+    background: linear-gradient(to right, rgb(9, 146, 215), rgb(180, 180, 18));
+    font-size:50px;
+}
