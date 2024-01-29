@@ -31,18 +31,6 @@ const ProductList = () => {
         // This will unsubscribe from the updates when the component unmounts
         return () => unsubscribe();
     }, []);
-    
-    
-
-    const loadVoices = () => {
-        let availableVoices = speechSynthesis.getVoices();
-        console.log("Loaded Voices: ", availableVoices); // Add this line for debugging
-        if (availableVoices.length > 0) {
-            setVoices(availableVoices);
-            setVoicesLoaded(true);
-        }
-    };
-    
     const speakNumber = (number) => {
         if (number !== undefined) {
             const utterance = new SpeechSynthesisUtterance(`Number ${number}, please proceed to the counter`);
