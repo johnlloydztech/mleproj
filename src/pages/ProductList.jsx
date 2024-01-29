@@ -38,37 +38,6 @@ const ProductList = () => {
         }
     };
     
-
-    const callCurrentNumber = () => {
-        if (!voicesLoaded) {
-            console.warn('The voices have not been loaded yet.');
-            return;
-        }
-    
-        const currentNumber = queueList[currentIndex]?.number;
-        if (currentNumber) {
-            speakNumber(currentNumber); // Simplified call
-        } else {
-            console.warn('Current number is not available.');
-        }
-    };
-    
-    
-
-    const getFemaleVoice = () => {
-        const femaleVoice = voices.find(voice => voice.gender === 'female') ||
-                            voices.find(voice => voice.name.toLowerCase().includes('female'));
-        if (femaleVoice) {
-            return femaleVoice;
-        } else {
-            // Log a warning if no female voice is found and return the first voice as fallback
-            console.warn('No female voice found. Falling back to the default voice.');
-            return voices[0];
-        }
-    };
-    
-    
-
     const handleNext = () => {
         if (currentIndex + 1 < queueList.length) {
             const nextIndex = currentIndex + 1;
