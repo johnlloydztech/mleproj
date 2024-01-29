@@ -8,8 +8,6 @@ import app from '../firebaseconfig';
 const ProductList = () => {
     const [queueList, setQueueList] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(parseInt(localStorage.getItem('currentIndex')) || 0);
-    const [voices, setVoices] = useState([]);
-    const [voicesLoaded, setVoicesLoaded] = useState(false);
     
     
 
