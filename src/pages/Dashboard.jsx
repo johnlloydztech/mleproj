@@ -6,7 +6,7 @@ import app from '../firebaseconfig';
 
 const Dashboard = () => {
     const [queueList, setQueueList] = useState([]);
-    
+
     const db = getDatabase(app);
     const waitlistRef = ref(db);
     const [currentIndex, setCurrentIndex] = useState(parseInt(localStorage.getItem('currentIndex')) || 0);
@@ -22,29 +22,30 @@ const Dashboard = () => {
             setQueueList(listItems.sort((a, b) => a.id.localeCompare(b.id))); // Sort by id if needed
         });
     }, [waitlistRef]);
-    
-    
+
+
     const updateIndex = useCallback(() => {
         const nextIndex = currentIndex + 1;
         setCurrentIndex(nextIndex);
         localStorage.setItem('currentIndex', nextIndex.toString());
         const currentIndexRef = ref(db, 'currentIndex');
         update(currentIndexRef, nextIndex);
-    }, [db, currentIndex]); // Include db in the dependency array
-
+    }, [currentIndex, setCurrentIndex, db]); // Include 'db' in the dependency array
+    
     useEffect(() => {
         if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
           updateIndex();
         }
       }, [queueList, currentIndex,updateIndex]); // Make sure currentIndex is a dependency
-      
-    
+
+
     useEffect(() => {
-      if (queueList.length > 0 && queueList[currentIndex].status === 'Complete') {
-        updateIndex();
-      }
-    }, [queueList, currentIndex,updateIndex]);
-    
+        if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
+          updateIndex();
+        }
+      }, [queueList, currentIndex, updateIndex]); // Use this useEffect only
+      
+
     const getNextNumber = () => {
       // Check if there is a next item in the queue
       if (currentIndex < queueList.length - 1) {
