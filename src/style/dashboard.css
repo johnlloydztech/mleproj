@@ -178,9 +178,8 @@
 /* Optional: Additional button styling */
 .navigation-buttons {
     display: flex;
-    justify-content: space-between; /* This will place the buttons on either end */
-    width: 40rem; /* Match the width of the .box to align with the card */
-    margin-top: 20px; /* Space above the buttons */
+    justify-content: space-between;
+    margin-top: 20px; /* Or whatever space you need */
 }
 .navigation-buttons button {
     padding: 10px 60px; /* Padding inside the buttons */
