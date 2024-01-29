@@ -29,7 +29,7 @@ const Dashboard = () => {
       setCurrentIndex(nextIndex);
       localStorage.setItem('currentIndex', nextIndex.toString());
       const currentIndexRef = ref(db, 'currentIndex');
-      update(currentIndexRef, nextIndex));
+      update(currentIndexRef, nextIndex);
     }, [currentIndex]);
     useEffect(() => {
         if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
