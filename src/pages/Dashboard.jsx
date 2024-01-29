@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect,useCallback} from 'react';
 import '../style/dashboard.css';
 import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { IoIosPeople } from "react-icons/io";
@@ -24,13 +24,13 @@ const Dashboard = () => {
     }, [waitlistRef]);
     
     
-    const updateIndex = () => {
+    const updateIndex = useCallback(() => {
       const nextIndex = currentIndex + 1;
       setCurrentIndex(nextIndex);
       localStorage.setItem('currentIndex', nextIndex.toString());
       const currentIndexRef = ref(db, 'currentIndex');
-      update(currentIndexRef, nextIndex);
-    };
+      update(currentIndexRef, nextIndex));
+    }, [currentIndex];
     useEffect(() => {
         if (queueList.length > 0 && queueList[currentIndex]?.status === 'Complete') {
           updateIndex();
